@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Navbar } from './compoments';
 
 interface User {
   firstName: string;
@@ -21,14 +22,8 @@ export default function App() {
   }, []);
   
   return (
-    <div className="bg-slate-500">
-      <h1 className='text-8xl text-center text-slate-800'>Current Users</h1>
-      <ul  className='text-3xl'>
-        {backendData.users.map((user: User, index: number) => (
-          
-            <li className="text-emerald-400" key={index}>{user.firstName} {user.lastName}</li>
-        ))}
-      </ul>
+    <div>
+      <Navbar></Navbar>
     </div>
   );
 }
