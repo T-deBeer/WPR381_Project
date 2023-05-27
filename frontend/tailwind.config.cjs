@@ -7,6 +7,7 @@ export default {
         creamlighter: "#FFFDF6",
         creamlight: "#FAF6E9",
         cream: '#d2b48c',
+        creamDark: '#be935a',
         grey: '#494949',
       },
     },
