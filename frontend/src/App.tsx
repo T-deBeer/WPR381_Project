@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Navbar } from './compoments';
-
+import { Navbar, VideoBackground } from './compoments';
+import  background  from './assets/background.mp4';
 interface User {
   firstName: string;
   lastName: string;
@@ -22,8 +22,9 @@ export default function App() {
   }, []);
   
   return (
-    <div>
-      <Navbar></Navbar>
+    <div className='bg-creamlight h-[100vh]'>
+      <Navbar/>
+      <VideoBackground/>
     </div>
   );
 }
