@@ -28,7 +28,7 @@ function Sidebar() {
                     }
                 </ul>
             </div>
-            <div className={`bg-gray-50 absolute top-0 left-0 w-full h-full z-30 transition-opacity ease-in-out duration-300 ${showSidebar ? 'opacity-50' : 'opacity-0'}`} />
+            <div className={`bg-gray-50 absolute top-0 left-0 w-full h-full transition-opacity ease-in-out duration-300 ${showSidebar ? 'opacity-50 z-30' : 'opacity-0 z-0'}`} />
         </>
     );
 };
