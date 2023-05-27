@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from 'react'
 
-function Textbox() {
+export default function Textbox() {
   const [input, setInput] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
   return (
@@ -19,5 +19,3 @@ function Textbox() {
     </div>
   )
 }
-
-export default Textbox
