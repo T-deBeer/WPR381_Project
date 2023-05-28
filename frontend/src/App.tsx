@@ -23,9 +23,17 @@ export default function App() {
   
   return (
     <div className='bg-creamlight h-[100vh]'>
-      <WeatherDayDisplay/>
-      {/* <Navbar/>
-      <VideoBackground/> */}
+      <Navbar/>
+      <VideoBackground/>
+      <div className='w-[94vw] ml-[3vw]'>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+      </div>
     </div>
   );
 }
