@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Navbar, VideoBackground } from './compoments';
-import  background  from './assets/background.mp4';
+import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
+
 interface User {
   firstName: string;
   lastName: string;
@@ -25,6 +25,15 @@ export default function App() {
     <div className='bg-creamlight h-[100vh]'>
       <Navbar/>
       <VideoBackground/>
+      <div className='w-[94vw] ml-[3vw]'>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+        <WeatherDayDisplay/>
+      </div>
     </div>
   );
 }
