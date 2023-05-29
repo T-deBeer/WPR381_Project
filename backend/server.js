@@ -34,7 +34,6 @@ app.get("/api/:zipcode", async (req, res) => {
         day: "numeric",
       });
 
-      console.log(day.temp);
 
       return {
         date: formattedDate,

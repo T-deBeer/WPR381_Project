@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
-import  { BackendData } from './data/interfaces';
+import  { forecastData, weeksForecast } from './data/interfaces';
+import { useParams } from 'react-router-dom';
 
 
 export default function Predictions() {
-  const [backendData, setBackendData] = useState<BackendData>({ users: [] });
+  const [weatherInfo, setWeather] = useState<forecastData[]>([]);
+
+  const {zipcode} = useParams();
 
   useEffect(() => {
-    fetch("/api")
+    fetch(`/api/${zipcode}`)
       .then(response => response.json())
-      .then((data: BackendData) => {
-        setBackendData(data);
+      .then((data: forecastData[]) => {
+        setWeather(data);
       });
   }, []);
   
@@ -20,7 +23,8 @@ export default function Predictions() {
      {/* <DetailedWeatherDisplay/> */}
       <Navbar/>
       <div className='w-[94vw] ml-[3vw] mt-[3vh] h-[85vh] bg-black'>
-        <WeatherDayDisplay/>
+      {weatherInfo.map((weather:forecastData) =>(<WeatherDayDisplay info={weather}/>))}
+        
       </div>
     </div>
   );

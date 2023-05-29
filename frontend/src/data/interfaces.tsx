@@ -2,13 +2,40 @@ export interface TextboxProps{
     text: string;
     onChange?: () => void;
   }
+
+export interface WeatherDisplayProps{
+    info: forecastData;
+    onChange?: () => void;
+  }
   
-export interface User {
+export interface Weather {
+    id: Number;
+    main: String;
+    description: String;
+    icon: String;
+  }
+
+  export interface forecastData {
+    date: String;
     sunrise: Date;
-    lastName: string;
+    sunset: Date;
+    moonrise: Date;
+    moonset: Date;
+    moon_phase: Number;
+    temperature: Number;
+    feels_like: Number;
+    pressure: Number;
+    humidity: Number;
+    dew_point: Number;
+    wind_speed: Number;
+    wind_deg: Number;
+    wind_gust: Number;
+    weather: Weather;
+    clouds: Number;
+    pop: Number;
+    uvi: Number;
   }
-  
-export interface BackendData {
-    users: User[];
-  }
-  
+
+ export interface weeksForecast{
+  info: forecastData[];
+ }
