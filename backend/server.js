@@ -3,15 +3,6 @@ const axios = require("axios");
 
 const app = express();
 
-app.get("/api", (req, res) => {
-  res.json({
-    users: [
-      { firstName: "Tiaan", lastName: "de Beer" },
-      { firstName: "Yvan", lastName: "Greyling" },
-    ],
-  });
-});
-
 app.get("/api/:zipcode", async (req, res) => {
   const { zipcode } = req.params;
 

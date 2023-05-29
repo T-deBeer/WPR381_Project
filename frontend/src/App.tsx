@@ -1,14 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Navbar, VideoBackground, WeatherDayDisplay, DetailedWeatherDisplay } from './compoments';
-
-interface User {
-  firstName: string;
-  lastName: string;
-}
-
-interface BackendData {
-  users: User[];
-}
+import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
+import  { BackendData } from './data/interfaces';
 
 export default function App() {
   const [backendData, setBackendData] = useState<BackendData>({ users: [] });
