@@ -9,8 +9,8 @@ export default function VideoBackground() {
 
   return (
     <>
-      <div className="mt-[2vw] w-[49vw] h-[55vh] m-auto relative">
-          <video src={background} muted loop autoPlay className="h-[55vh] rounded-3xl">This video is not available at the moment</video>
+      <div className="mt-[2vw] w-[70vw] h-[80vh] m-auto relative">
+          <video src={background} muted loop autoPlay className="h-[80vh] rounded-[2.5em]">This video is not available at the moment</video>
           <p className={`text-8xl text-white whitespace-nowrap ${center()} top-[35%]`}>Weather.io</p>
           <p className={`text-4xl text-white whitespace-nowrap ${center()} top-[50%]`}>Award-winning weather forecasting app of 580 B.C.</p>
           <div className={`${center()} top-[70%]`}>

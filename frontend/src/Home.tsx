@@ -3,7 +3,7 @@ import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
 import  { BackendData } from './data/interfaces';
 
 
-export default function App() {
+export default function Home() {
   const [backendData, setBackendData] = useState<BackendData>({ users: [] });
 
   useEffect(() => {
@@ -20,15 +20,6 @@ export default function App() {
      {/* <DetailedWeatherDisplay/> */}
       <Navbar/>
       <VideoBackground/>
-      <div className='w-[94vw] ml-[3vw]'>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-        <WeatherDayDisplay/>
-      </div>
     </div>
   );
 }
