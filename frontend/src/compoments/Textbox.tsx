@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import TextboxProps from '../data/interfaces';
+import { TextboxProps }from '../data/interfaces';
 
 interface TextboxProps {
   text: string;
