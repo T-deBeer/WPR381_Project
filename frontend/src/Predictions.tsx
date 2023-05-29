@@ -20,9 +20,6 @@ export default function Predictions() {
      {/* <DetailedWeatherDisplay/> */}
       <Navbar/>
       <div className='w-[94vw] ml-[3vw] mt-[3vh] h-[85vh] bg-black'>
-        <div className='w-[90vw] ml-[2vw] h-[40vh] bg-red-500'>
-
-        </div>
         <WeatherDayDisplay/>
       </div>
     </div>
