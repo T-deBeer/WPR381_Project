@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
 import  { BackendData } from './data/interfaces';
 
+
 export default function App() {
   const [backendData, setBackendData] = useState<BackendData>({ users: [] });
 

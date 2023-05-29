@@ -3,7 +3,7 @@ export interface TextboxProps{
   }
   
 export interface User {
-    firstName: string;
+    sunrise: Date;
     lastName: string;
   }
   

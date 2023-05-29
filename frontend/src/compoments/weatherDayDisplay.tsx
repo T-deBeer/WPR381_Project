@@ -1,5 +1,7 @@
 import React from 'react'
 import { background, sunny, calender, temp } from '../assets';
+
+
 export default function WeatherDayDisplay() {
   return (
     <div className='bg-cream w-[11vw] h-[29vh] rounded-2xl relative inline-block ml-10 mt-10'>

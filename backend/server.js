@@ -34,6 +34,8 @@ app.get("/api/:zipcode", async (req, res) => {
         day: "numeric",
       });
 
+      console.log(day.temp);
+
       return {
         date: formattedDate,
         sunrise: new Date(day.sunrise * 1000),
@@ -57,7 +59,6 @@ app.get("/api/:zipcode", async (req, res) => {
     });
 
     res.json(dailyForecast);
-    
   } catch (error) {
     console.error("Error:", error);
     res.status(500).json({ error: "Internal server error" });

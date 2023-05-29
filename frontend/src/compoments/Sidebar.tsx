@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { menu } from '../assets';
 import { navLinks } from '../constants';
-function Sidebar() {
+
+
+export default  function Sidebar() {
     const [showSidebar, setShowSidebar] = useState(false);
     const toggleMenu = () => {
         setShowSidebar((prev) => { return !prev });
@@ -34,5 +36,3 @@ function Sidebar() {
         </>
     );
 };
-
-export default Sidebar;
