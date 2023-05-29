@@ -1,9 +1,6 @@
 import React, { ChangeEvent, useState } from 'react'
-import { TextboxProps }from '../data/interfaces';
+import { TextboxProps } from '../data/interfaces';
 
-interface TextboxProps {
-  text: string;
-}
 export default function Textbox(TextboxProps: TextboxProps) {
   const [input, setInput] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
