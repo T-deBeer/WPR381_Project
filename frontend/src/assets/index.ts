@@ -6,8 +6,12 @@ import cloudy from './Cloudy.png';
 import rain from './Rain.png';
 import snow from './Snow.png';
 import sunny from './Sunny.png'
-import temp from './Temp.png';
+import tempNormal from './tempNormal.png';
+import tempWarm from './tempWarm.png';
+import tempCold from './tempCold.png';
 import thunderstorm from './Thunderstorm.png';
+import wind from './Wind.png';
+import fog from './fog.png';
 
 export {
     logo,
@@ -18,6 +22,10 @@ export {
     rain,
     snow,
     sunny,
-    temp,
-    thunderstorm
+    tempWarm,
+    tempCold,
+    tempNormal,
+    thunderstorm,
+    fog,
+    wind,
 }

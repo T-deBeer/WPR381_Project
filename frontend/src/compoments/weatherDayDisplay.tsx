@@ -1,7 +1,5 @@
 import React from 'react'
-import { background, sunny, calender, temp } from '../assets';
-
-
+import { background, sunny, calender, tempNormal } from '../assets';
 export default function WeatherDayDisplay() {
   return (
     <div className='bg-cream w-[11vw] h-[29vh] rounded-2xl relative inline-block ml-10 mt-10'>
@@ -15,7 +13,7 @@ export default function WeatherDayDisplay() {
           Date
         </li>
         <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
-          <img src={temp} alt="temp" className='h-[3.5vh] mr-2'/>
+          <img src={tempNormal} alt="temp" className='h-[3.5vh] mr-2'/>
           AVG Temp
         </li>
         <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
