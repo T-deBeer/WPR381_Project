@@ -1,7 +1,7 @@
 import React from 'react'
 import { background } from '../assets'
 import { Textbox, Button } from '../compoments'
-function VideoBackground() {
+export default function VideoBackground() {
 
   function center(){
     return `absolute left-[50%] translate-x-[-50%] translate-y-[-50%]`;
