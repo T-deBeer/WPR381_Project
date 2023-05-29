@@ -8,7 +8,7 @@ function Sidebar() {
     };
     return (
         <>
-            <img src={menu} alt="menu" className={`h-[4vh] z-50 transition-all duration-300 ${ showSidebar ? 'rotate-0' : 'rotate-90'}`} onClick={toggleMenu} />
+            <img src={menu} alt="menu" className={`h-[4vh] z-50 transition-all duration-300 ${showSidebar ? 'rotate-0' : 'rotate-90'}`} onClick={toggleMenu} />
 
             <div
                 className={`top-0 left-[-15vw] w-[15vw] h-full pt-[5vh] bg-creamDark text-white fixed z-40  ease-in-out duration-300 ${showSidebar ? "translate-x-full " : "translate-x-0"}`}
@@ -28,10 +28,14 @@ function Sidebar() {
                     }
                 </ul>
             </div>
-            <div 
-            onClick={toggleMenu}
-            className={`bg-gray-50 absolute top-0 left-0 w-full h-full transition-opacity ease-in-out duration-300 ${showSidebar ? 'opacity-50 z-30' : 'opacity-0 z-0'}`} />
-        </>
+            <div
+                onClick={() => {
+                    if (showSidebar) {
+                        toggleMenu
+                    }
+                }}
+                className={`bg-gray-50 absolute top-0 left-0 w-full h-full transition-opacity ease-in-out duration-300 ${showSidebar ? 'opacity-50 z-30' : 'opacity-0 z-0'}`} />
+            </>
     );
 };
 

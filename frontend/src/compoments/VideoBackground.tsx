@@ -1,6 +1,6 @@
 import React from 'react'
 import { background } from '../assets'
-import { Textbox } from '../compoments'
+import { Textbox, Button } from '../compoments'
 function VideoBackground() {
 
   function center(){
@@ -16,6 +16,9 @@ function VideoBackground() {
           <div className={`${center()} top-[70%]`}>
             <Textbox text='Enter ZIP code'/>
           </div>          
+          <div className={`${center()} top-[80%]`}>
+          <Button caption='Search'/>
+          </div> 
       </div>
     </>
   )
