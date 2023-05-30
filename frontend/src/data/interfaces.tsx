@@ -1,11 +1,11 @@
 export interface TextboxProps{
     text: string;
-    onChange?: () => void;
+    onChange?: (event: any) => void;
   }
 
 export interface WeatherDisplayProps{
     info: forecastData;
-    onChange?: () => void;
+    onChange?: (event: any) => void;
   }
   
 export interface Weather {

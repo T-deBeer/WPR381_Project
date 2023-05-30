@@ -5,11 +5,24 @@ import Textbox from './Textbox';
 import Button from './button';
 
 export default function VideoBackground() {
+  const navi = useNavigate()
+  const [zipcode, setZipcode] = useState('');
+
+  const handleInputChange = (event:any):void => {
+    setZipcode(event.target.value);
+  };
 
   function center() {
     return 'absolute left-[50%] translate-x-[-50%] translate-y-[-50%]';
   }
 
+  function getWeather() {
+    if (/^\d{4}$/.test(zipcode)) {
+      navi(`/predictions/${zipcode}`);
+    } else {
+      console.log("Error toast popup?");
+    }
+  }
 
   return (
     <>
@@ -22,10 +35,10 @@ export default function VideoBackground() {
           Award-winning weather forecasting app of 580 B.C.
         </p>
         <div className={`${center()} top-[70%]`}>
-          <Textbox text="Enter ZIP code"/>
+          <Textbox text="Enter ZIP code" onChange={handleInputChange}/>
         </div>
         <div className={`${center()} top-[80%]`}>
-          <Button caption="Search" />
+          <Button caption="Search" onClick={getWeather} />
         </div>
       </div>
     </>

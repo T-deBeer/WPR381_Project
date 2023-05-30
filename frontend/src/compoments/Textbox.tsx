@@ -4,6 +4,7 @@ import { TextboxProps } from '../data/interfaces';
 export default function Textbox(TextboxProps: TextboxProps) {
   const [input, setInput] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
+
   return (
     <div className='relative'>
       <input type="text" id="myInput"
@@ -13,8 +14,9 @@ export default function Textbox(TextboxProps: TextboxProps) {
         value={input}
         onChange={(e) => {        
           setInput(e.target.value);
-          TextboxProps.onChange;
-        }}
+          if (TextboxProps.onChange) {
+            TextboxProps.onChange(e);
+          }}}
       />
       <label htmlFor='myInput' className={`text-white transition-all duration-300 ease-in-out absolute left-[5%] ${focused ? '-top-[75%]' : 'top-[15%]'} m-[1%]`}>
         {TextboxProps.text}

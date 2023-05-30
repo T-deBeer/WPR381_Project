@@ -1,0 +1,12 @@
+{
+    "name": "wpr381-project",
+    "version": "1.0.0",
+    "description": "My project",
+    "scripts": {
+        "start-backend": "cd backend && npm run dev",
+        "start-frontend": "cd frontend && npm run dev",
+        "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
+    },
+    "dependencies": {
+        "concurrently": "^7.6.0"
+    }
