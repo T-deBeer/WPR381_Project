@@ -3,9 +3,10 @@ export interface TextboxProps{
     onChange?: (event: any) => void;
   }
 
-export interface WeatherDisplayProps{
+  export interface WeatherDisplayProps {
     info: forecastData;
     onChange?: (event: any) => void;
+    useMetricUnits: boolean;
   }
   
 export interface Weather {

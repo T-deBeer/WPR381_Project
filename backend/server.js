@@ -5,6 +5,7 @@ const app = express();
 
 app.get("/api/:zipcode", async (req, res) => {
   const { zipcode } = req.params;
+  const { useMetricUnits } = req.query;
 
   try {
     // Perform geocoding using Nominatim API limited to South Africa
@@ -22,7 +23,9 @@ app.get("/api/:zipcode", async (req, res) => {
     const { lat, lon } = geocodingData[0];
 
     // Use latitude and longitude to fetch weather data from the OpenWeather API
-    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=47252d79c6b16c9635284528ca390df0`;
+    const units = useMetricUnits ? "metric" : "imperial";
+    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=47252d79c6b16c9635284528ca390df0`;
+    // const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=47252d79c6b16c9635284528ca390df0`;
     const weatherResponse = await fetch(weatherEndpoint);
     const weatherData = await weatherResponse.json();
 
