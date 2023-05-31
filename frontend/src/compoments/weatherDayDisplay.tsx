@@ -1,18 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { background, sunny, calender, tempNormal } from '../assets';
 import { WeatherDisplayProps } from '../data/interfaces';
 
 
-export default function WeatherDayDisplay(props: WeatherDisplayProps) {
+export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: number } & { refresh: boolean}) {
   const [isFocused, setIsFocused] = useState(false);
+  const uniqueId = `weatherDayDisplay-${props.id}`;
+
+  useEffect(() => {
+    setIsFocused(() => document.getElementById(uniqueId)?.classList.contains('expanded') ? true : false);
+  }, [props.refresh]);
 
   return (
-    <div className={`bg-cream rounded-2xl relative inline-block ml-10 mt-10 transition-all
+    <div id={uniqueId} className={`bg-cream rounded-2xl relative inline-block ml-10 mt-10 transition-all
       ${isFocused ? ' top-0 w-[30vw] h-[50vh]' : ' top-[50vh] w-[11vw] h-[29vh]'}`}
-      onClick={() => {
-        setIsFocused((prev) => !prev);
-      }}
-    >
+      onClick={ (event) => {
+        props.onClick?.(event);
+      }}>
       {isFocused ?
         <div>
           <div className='relative'>

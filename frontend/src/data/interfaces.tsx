@@ -6,6 +6,7 @@ export interface TextboxProps{
   export interface WeatherDisplayProps {
     info: forecastData;
     onChange?: (event: any) => void;
+    onClick?: (event: any) => void;
   }
   
 export interface Weather {
