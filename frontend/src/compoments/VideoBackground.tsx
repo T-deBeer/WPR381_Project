@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import { background } from '../assets';
 import Textbox from './Textbox';
 import Button from './button';
+import axios from 'axios';
 
 export default function VideoBackground() {
   const navi = useNavigate()
@@ -24,6 +25,48 @@ export default function VideoBackground() {
     }
   }
 
+  async function fetchZipCode(latitude: number, longitude:number) {
+    const apiKey = 'ff98e538e2214f10ba54947f34bf6b6d'; // Replace with your OpenCage API key
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+  
+    try {
+      const response = await axios.get(url);
+      const { results } = response.data;
+  
+      if (results.length > 0) {
+        const { components } = results[0];
+        const zipCode = components.postcode;
+        return zipCode;
+      } else {
+        throw new Error('No results found');
+      }
+    } catch (error) {
+      console.error('Error fetching zip code:', error);
+      return null;
+    }
+  }
+
+  function getMyLocation() {
+    const location = window.navigator && window.navigator.geolocation
+
+    if (location) {
+      location.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        fetchZipCode(latitude, longitude)
+          .then((zipCode) => {
+            console.log('Zip code:', zipCode);
+            navi(`/predictions/${zipCode}`);
+          })
+          .catch((error) => {
+            console.error('Error retrieving zip code:', error);
+          });
+      }, (error) => {
+        console.log(error)
+      })
+    }
+
+  }
+
   return (
     <>
       <div className="mt-[2vw] w-[70vw] h-[80vh] m-auto relative">
@@ -39,6 +82,7 @@ export default function VideoBackground() {
         </div>
         <div className={`${center()} top-[80%]`}>
           <Button caption="Search" onClick={getWeather} />
+          <Button caption="Use Current Location" onClick={getMyLocation} />
         </div>
       </div>
     </>
