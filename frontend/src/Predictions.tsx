@@ -25,7 +25,7 @@ export default function Predictions() {
   }
 
   // Performed when one of the WeatherDayDisplays is clicked for expanding the selected element.
-  function setFocus(event: any, id: number) {
+  function setFocus(event: any) {
     const selectedBox = event.target;
     const container = document.getElementById('container') || document.createElement('div');
     const boxes = Array.from(container.children);
@@ -51,7 +51,7 @@ export default function Predictions() {
       <div className='bg-creamlight h-[100vh]'>
         <Navbar/>
         <div className='w-[94vw] ml-[3vw] mt-[3vh] h-[85vh] bg-black' id='container'>
-          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} id={i} refresh={refresh} onClick={(event) => setFocus(event, i)}/>))}
+          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} id={i} refresh={refresh} onClick={(event) => setFocus(event)}/>))}
         </div>
       </div>
       <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black' onClick={switchUnit}>Switch Unit</button>
