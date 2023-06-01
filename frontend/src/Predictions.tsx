@@ -24,17 +24,24 @@ export default function Predictions() {
     setUnits(useMetricUnits ? "metric" : "imperial");
   }
 
-  function setFocus(event: any){
+  // Performed when one of the WeatherDayDisplays is clicked for expanding the selected element.
+  function setFocus(event: any, id: number) {
     const selectedBox = event.target;
     const container = document.getElementById('container') || document.createElement('div');
     const boxes = Array.from(container.children);
 
-    const alreadySelectedBox = (selectedBox.classList.contains('expanded') ? true : false);
-
+    // Removes expanded from all elements.
     boxes.forEach(box => box.classList.remove('expanded'));
-    selectedBox.classList.add('expanded');
+    // we need to have consistency, so when an element is clicked inside the element we want to make expanded, we instead locate the main element and change it's classlist.
+    const main = selectedBox.closest("section");
+    main.classList.add('expanded');
 
+    // Refreshes the generation of all the elements.
     setRefresh(prev => !prev);
+
+    // alert(document.getElementById('weatherDayDisplay-1')?.classList);
+    // alert(main.classList);
+    // alert(`#weatherDayDisplay-${id}`);
   }
 
   let i = 0;
@@ -44,7 +51,7 @@ export default function Predictions() {
       <div className='bg-creamlight h-[100vh]'>
         <Navbar/>
         <div className='w-[94vw] ml-[3vw] mt-[3vh] h-[85vh] bg-black' id='container'>
-          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} id={i} refresh={refresh} onClick={setFocus}/>))}
+          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} id={i} refresh={refresh} onClick={(event) => setFocus(event, i)}/>))}
         </div>
       </div>
       <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black' onClick={switchUnit}>Switch Unit</button>
