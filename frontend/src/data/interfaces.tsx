@@ -24,6 +24,8 @@ export interface Weather {
     moonset: Date;
     moon_phase: Number;
     temperature: Number;
+    min_temp: Number;
+    max_temp: Number;
     feels_like: Number;
     pressure: Number;
     humidity: Number;

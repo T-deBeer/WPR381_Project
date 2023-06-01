@@ -19,6 +19,8 @@ export default function Predictions() {
       });
   }, [zipcode, useMetricUnits, units]);
   
+  console.log(weatherInfo[0]);
+
   function switchUnit() {
     setUseMetricUnits(!useMetricUnits);
     setUnits(useMetricUnits ? "metric" : "imperial");
