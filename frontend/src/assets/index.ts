@@ -10,8 +10,19 @@ import tempNormal from './tempNormal.png';
 import tempWarm from './tempWarm.png';
 import tempCold from './tempCold.png';
 import thunderstorm from './Thunderstorm.png';
-import wind from './Wind.png';
+import wind from './wind.png';
 import fog from './fog.png';
+import sunrise from './sunrise.png';
+import sunset from './sunset.png';
+import moonrise from './moonrise.png';
+import moonset from './moonset.png';
+import compass from './compass.png';
+import gust from './gust.png';
+import humidity from './humidity.png';
+import feel from './feel.png';
+import sunny_video from './sunny.mp4';
+import rainy_video from './rainy.mp4';
+import cloudy_video from './cloudy.mp4';
 
 export {
     logo,
@@ -28,4 +39,15 @@ export {
     thunderstorm,
     fog,
     wind,
+    sunrise,
+    sunset,
+    moonrise,
+    moonset,
+    compass,
+    gust,
+    humidity,
+    feel,
+    sunny_video,
+    rainy_video,
+    cloudy_video
 }

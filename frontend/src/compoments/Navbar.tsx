@@ -6,7 +6,7 @@ import { Sidebar } from '../compoments';
 export default function Navbar() {
   return (
     <>
-      <nav className='bg-creamDark px-[2vw] py-[1vh] flex items-center justify-start'>  
+      <nav className='bg-creamDark w-[100vw] px-[2vw] py-[1vh] flex items-center justify-start'>  
         <Sidebar/>             
       </nav>
     </>

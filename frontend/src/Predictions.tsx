@@ -50,13 +50,13 @@ export default function Predictions() {
 
   return (
     <div>
-      <div className='bg-creamlight h-[100vh]'>
+      <div className='bg-creamlighter h-[100vh] fixed'>
         <Navbar/>
-        <div className='w-[94vw] ml-[3vw] mt-[3vh] h-[85vh] bg-black' id='container'>
+        <div className='relative w-[94vw] ml-[3vw] h-[95vh] bg-creamlight shadow-2xl' id='container'>
           {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} key={i} id={i} refresh={refresh} onClick={setFocus}/>))}
         </div>
+        <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black absolute top-[1vh] left-[5vw]' onClick={switchUnit}>Switch Unit</button>
       </div>
-      <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black' onClick={switchUnit}>Switch Unit</button>
     </div>
   );
 }
