@@ -137,19 +137,19 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
             <div className='w-[27vw] h-[16vh] border bg-creamlight rounded-xl shadow-md shadow-slate-600'>
               <ul className='list-none absolute left-[36%] flex'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
-                  {/* <p>min:</p> */}
+                  <p>min:</p>
                   <img src={temp_img(Number.parseInt(props.info.min_temp.toString()))} alt="temp" title='minimum temperature' className='h-[3.5vh] mr-2' />
-                  <p className='w-[2.5vw]' title='minimum temperature'>{props.info.min_temp.toString()}</p>
+                  <p className='w-[1vw]' title='minimum temperature'>{props.info.min_temp.toString()}</p>
                 </li>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center ml-[7vw]'>
-                  {/* <p>max:</p> */}
+                  <p>max:</p>
                   <img src={temp_img(Number.parseInt(props.info.max_temp.toString()))} alt="temp" title='maximum temperature' className='h-[3.5vh] mr-2' />
-                  <p className='w-[2.5vw]' title='maximum temperature'>{props.info.max_temp.toString()}</p>
+                  <p className='w-[1vw]' title='maximum temperature'>{props.info.max_temp.toString()}</p>
                 </li>
               </ul>
               <ul className='list-none absolute left-[28.2%] top-[76%]'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center ml-[7vw]'>
-                  {/* <p>avg:</p> */}
+                  <p>avg:</p>
                   <img src={temp_img(Number.parseInt(props.info.temperature.toString()))} alt="temp" title='average temperature' className='h-[3.5vh] mr-2' />
                   <p title='maximum temperature'>{props.info.temperature.toString()}</p>
                 </li>
