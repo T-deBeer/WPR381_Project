@@ -74,11 +74,14 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
   g_units = props.units;
 
   let temp_metric = "";
+  let speed_metric = "";
 
   if (props.units === "metric") {
     temp_metric = "°C";
+    speed_metric = "Km/h";
   } else {
     temp_metric = "°F";
+    speed_metric = "mph";
   }
 
   // Refreshes the page everytime a new item is focused so that all other items are moved out of focus. 
@@ -194,13 +197,13 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
                 </li>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center ml-[7vw]'>
                   <img src={wind} alt="temp" title='wind speed' className='h-[3.5vh] mr-2' />
-                  <p title='wind speed'>{props.info.wind_speed.toString()} Km/h</p>
+                  <p title='wind speed'>{props.info.wind_speed.toString()} {speed_metric}</p>
                 </li>
               </ul>
               <ul className='list-none absolute flex ml-[3vw] top-[20vh]'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
                   <img src={gust} alt="temp" title='wind gust (strongest speed)' className='h-[3.5vh] mr-2' />
-                  <p title='wind gust (strongest speed)'>{props.info.wind_gust.toString()} Km/h</p>
+                  <p title='wind gust (strongest speed)'>{props.info.wind_gust.toString()} {speed_metric}</p>
                 </li>
               </ul>
             </div>
