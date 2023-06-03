@@ -73,6 +73,14 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
   const uniqueId = `weatherDayDisplay-${props.id}`;
   g_units = props.units;
 
+  let temp_metric = "";
+
+  if (props.units === "metric") {
+    temp_metric = "°C";
+  } else {
+    temp_metric = "°F";
+  }
+
   // Refreshes the page everytime a new item is focused so that all other items are moved out of focus. 
   // Otherwise the previously focused item will still remain focus when selecting another element to focus.
   // Checks through akll the elements since other elements can be clicked on that weatherdaydisplay.
@@ -151,19 +159,19 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
                   <p>min:</p>
                   <img src={temp_img(Number.parseInt(props.info.min_temp.toString()))} alt="temp" title='minimum temperature' className='h-[3.5vh] mr-2' />
-                  <p className='w-[1vw]' title='minimum temperature'>{props.info.min_temp.toString()}</p>
+                  <p className='w-[1vw]' title='minimum temperature'>{props.info.min_temp.toString()}{temp_metric}</p>
                 </li>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center ml-[7vw]'>
                   <p>max:</p>
                   <img src={temp_img(Number.parseInt(props.info.max_temp.toString()))} alt="temp" title='maximum temperature' className='h-[3.5vh] mr-2' />
-                  <p className='w-[1vw]' title='maximum temperature'>{props.info.max_temp.toString()}</p>
+                  <p className='w-[1vw]' title='maximum temperature'>{props.info.max_temp.toString()}{temp_metric}</p>
                 </li>
               </ul>
               <ul className='list-none absolute left-[28.2%] top-[76%]'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center ml-[7vw]'>
                   <p>avg:</p>
                   <img src={temp_img(Number.parseInt(props.info.temperature.toString()))} alt="temp" title='average temperature' className='h-[3.5vh] mr-2' />
-                  <p title='maximum temperature'>{props.info.temperature.toString()}</p>
+                  <p title='maximum temperature'>{props.info.temperature.toString()}{temp_metric}</p>
                 </li>
               </ul>
             </div>
@@ -232,7 +240,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
             </li>
             <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
               <img src={temp_img(Number.parseInt(props.info.temperature.toString()))} alt="temp" className='h-[3.5vh] mr-2' />
-              {props.info.temperature.toString()}
+              {props.info.temperature.toString()}{temp_metric}
             </li>
             <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
               <img src={weather_pred_icons[props.info.weather.main.toString()]} alt="sunny" className='h-[3.5vh] mr-2' />
