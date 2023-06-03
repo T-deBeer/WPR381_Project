@@ -17,6 +17,7 @@ export interface Weather {
   }
 
   export interface forecastData {
+    location: String;
     date: String;
     sunrise: Date;
     sunset: Date;

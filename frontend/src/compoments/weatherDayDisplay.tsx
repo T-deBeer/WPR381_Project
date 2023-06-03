@@ -106,6 +106,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
       onClick={ (event) => {
         props.onClick?.(event);
       }}>
+        
       {/* Checks if an item is focused and changes its appearance accordingly */}
       {isFocused ?
         <div>

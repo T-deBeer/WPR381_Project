@@ -29,54 +29,9 @@ app.get("/api/:zipcode", async (req, res) => {
     const weatherResponse = await fetch(weatherEndpoint);
     const weatherData = await weatherResponse.json();
 
-    const dailyForecast = weatherData.daily.map((day) => {
-      const date = new Date(day.dt * 1000);
-      const formattedDate = date.toLocaleDateString("en-US", {
-        weekday: "long",
-        month: "long",
-        day: "numeric",
-      });
-
-      return {
-        date: formattedDate,
-        sunrise: new Date(day.sunrise * 1000),
-        sunset: new Date(day.sunset * 1000),
-        moonrise: new Date(day.moonrise * 1000),
-        moonset: new Date(day.moonset * 1000),
-        moon_phase: day.moon_phase,
-        temperature: day.temp.day,
-        min_temp: day.temp.min,
-        max_temp: day.temp.max,
-        feels_like: day.feels_like.day,
-        pressure: day.pressure,
-        humidity: day.humidity,
-        dew_point: day.dew_point,
-        wind_speed: day.wind_speed,
-        wind_deg: day.wind_deg,
-        wind_gust: day.wind_gust,
-        weather: day.weather[0],
-        clouds: day.clouds,
-        pop: day.pop,
-        uvi: day.uvi,
-      };
-    });
-
-    res.json(dailyForecast);
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-app.get("/api/:lon/:lat", async (req, res) => {
-  const { lon, lat } = req.params;
-  const { units } = req.query;
-
-  try {
-    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=47252d79c6b16c9635284528ca390df0`;
-    // const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=47252d79c6b16c9635284528ca390df0`;
-    const weatherResponse = await fetch(weatherEndpoint);
-    const weatherData = await weatherResponse.json();
+    const place = weatherData.timezone.substring(
+      weatherData.timezone.indexOf("/") + 1
+    );
 
     const dailyForecast = weatherData.daily.map((day) => {
       const date = new Date(day.dt * 1000);
@@ -87,15 +42,16 @@ app.get("/api/:lon/:lat", async (req, res) => {
       });
 
       return {
+        location: place,
         date: formattedDate,
         sunrise: new Date(day.sunrise * 1000),
         sunset: new Date(day.sunset * 1000),
         moonrise: new Date(day.moonrise * 1000),
         moonset: new Date(day.moonset * 1000),
         moon_phase: day.moon_phase,
-        temperature: day.temp.day,
-        min_temp: day.temp.min,
-        max_temp: day.temp.max,
+        temperature: Math.round(day.temp.day),
+        min_temp: Math.round(day.temp.min),
+        max_temp: Math.round(day.temp.max),
         feels_like: day.feels_like.day,
         pressure: day.pressure,
         humidity: day.humidity,
