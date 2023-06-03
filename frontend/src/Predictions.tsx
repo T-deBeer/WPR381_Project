@@ -46,7 +46,7 @@ export default function Predictions() {
       <div className='bg-creamlighter h-[100vh] fixed'>
         <Navbar/>
         {weatherInfo.length > 0 && (
-          <h3 className='m-2 text-center text-3xl font-bold'>Weather in {weatherInfo[0].location}</h3>
+          <h3 className='text-center text-3xl font-bold absolute top-[1vh] left-[35vw]'>Weather in {weatherInfo[0].location}</h3>
         )}
         
         <div className='relative w-[94vw] ml-[3vw] h-[95vh] bg-creamlight shadow-2xl' id='container'>

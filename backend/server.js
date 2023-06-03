@@ -20,18 +20,18 @@ app.get("/api/:zipcode", async (req, res) => {
       return;
     }
 
-    const { lat, lon } = geocodingData[0];
+    const { lat, lon, display_name } = geocodingData[0];
 
     // Use latitude and longitude to fetch weather data from the OpenWeather API
 
-    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=${units}&appid=47252d79c6b16c9635284528ca390df0`;
+    const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=${units}&appid=47252d79c6b16c9635284528ca390df0`;
     // const weatherEndpoint = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&units=metric&appid=47252d79c6b16c9635284528ca390df0`;
     const weatherResponse = await fetch(weatherEndpoint);
     const weatherData = await weatherResponse.json();
 
-    const place = weatherData.timezone.substring(
-      weatherData.timezone.indexOf("/") + 1
-    );
+    console.log(display_name);
+    const parts = display_name.split(",");
+    const place = parts[1].trim();
 
     const dailyForecast = weatherData.daily.map((day) => {
       const date = new Date(day.dt * 1000);
