@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 export default function Predictions() {
   const [weatherInfo, setWeather] = useState<forecastData[]>([]);
-  const [useMetricUnits, setUseMetricUnits] = useState<boolean>(true)
+  const [useMetricUnits, setUseMetricUnits] = useState<boolean>(false)
   const [units, setUnits] = useState<string>('metric')
   const [refresh, setRefresh] = useState<boolean>(false);
   const {zipcode} = useParams();
@@ -40,10 +40,6 @@ export default function Predictions() {
 
     // Refreshes the generation of all the elements.
     setRefresh(prev => !prev);
-
-    // alert(document.getElementById('weatherDayDisplay-1')?.classList);
-    // alert(main.classList);
-    // alert(`#weatherDayDisplay-${id}`);
   }
 
   let i = 0;
@@ -53,7 +49,7 @@ export default function Predictions() {
       <div className='bg-creamlighter h-[100vh] fixed'>
         <Navbar/>
         <div className='relative w-[94vw] ml-[3vw] h-[95vh] bg-creamlight shadow-2xl' id='container'>
-          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} key={i} id={i} refresh={refresh} onClick={setFocus}/>))}
+          {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} key={i} id={i} refresh={refresh} units={units} onClick={setFocus}/>))}
         </div>
         <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black absolute top-[1vh] left-[5vw]' onClick={switchUnit}>Switch Unit</button>
       </div>

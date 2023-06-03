@@ -3,6 +3,7 @@ import { background, cloudy, rain, sunny, calender, tempNormal, tempCold, tempWa
 import { WeatherDisplayProps } from '../data/interfaces';
 
 const firstTime = false;
+let g_units = "";
 
 // dictionary to dynamically link the weather prediction images.
 const weather_pred_icons: { [key: string]: string } = {
@@ -20,13 +21,23 @@ const weather_pred_videos: { [key: string]: string } = {
 
 // Function to dynamically change the temperature image according to how hot or cold it is when we input the temperature.
 const temp_img = ((value: number) => {
-  if (value <= 15) {
-    return tempCold;
+  if (g_units === "metric") {
+    if (value <= 15) {
+      return tempCold;
+    };
+    if (value >= 25) {
+      return tempWarm;
+    };
+    return tempNormal;
+  } else {
+    if (value <= 60) {
+      return tempCold;
+    };
+    if (value >= 80) {
+      return tempWarm;
+    };
+    return tempNormal;
   };
-  if (value >= 25) {
-    return tempWarm;
-  };
-  return tempNormal;
 });
 
 // Function to dynamically determine the compass direction from inputted wind direction in degrees.
@@ -57,9 +68,10 @@ const wind_direction = ((value: number) => {
   };
 });
 
-export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: number } & { refresh: boolean}) {
+export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: number } & { refresh: boolean} & {units: string}) {
   const [isFocused, setIsFocused] = useState(false);
   const uniqueId = `weatherDayDisplay-${props.id}`;
+  g_units = props.units;
 
   // Refreshes the page everytime a new item is focused so that all other items are moved out of focus. 
   // Otherwise the previously focused item will still remain focus when selecting another element to focus.
