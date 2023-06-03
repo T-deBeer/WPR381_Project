@@ -4,6 +4,8 @@ import { background } from '../assets';
 import Textbox from './Textbox';
 import Button from './button';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function VideoBackground() {
   const navi = useNavigate()
@@ -19,9 +21,18 @@ export default function VideoBackground() {
 
   function getWeather() {
     if (/^\d{4}$/.test(zipcode)) {
-      navi(`/predictions/${zipcode}`);
+      fetch(`/api/${zipcode}`)
+      .then(response => {
+        if (response.status === 200) {
+          navi(`/predictions/${zipcode}`)
+        }
+        else{
+          toast.error('No such zipcode exists in South Africa.');
+        }
+      });
+      
     } else {
-      console.log("Error toast popup?");
+      toast.error('Only enter a zipcode please.');
     }
   }
 
@@ -69,6 +80,7 @@ export default function VideoBackground() {
 
   return (
     <>
+      <ToastContainer />
       <div className="mt-[2vw] w-[70vw] h-[80vh] m-auto relative">
         <video src={background} muted loop autoPlay className="h-[80vh] rounded-[2.5em]">
           This video is not available at the moment
@@ -80,7 +92,7 @@ export default function VideoBackground() {
         <div className={`${center()} top-[70%]`}>
           <Textbox text="Enter ZIP code" onChange={handleInputChange}/>
         </div>
-        <div className={`${center()} top-[80%]`}>
+        <div className={`${center()} top-[80%] flex flex-row gap-2 flex-wrap`}>
           <Button caption="Search" onClick={getWeather} />
           <Button caption="Use Current Location" onClick={getMyLocation} />
         </div>
