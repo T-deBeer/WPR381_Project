@@ -237,15 +237,15 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
             <p className='absolute top-[50%] left-[50%] text-white text-4xl -translate-x-1/2 -translate-y-1/2'>{props.info.date.substring(0,props.info.date.indexOf(','))}</p>
           </div>
           <ul className='list-none absolute left-[45%] -translate-x-[50%]'>
-            <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
+            <li className='text-black mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
               <img src={calender} alt="Calender" className='h-[3.5vh] mr-2' />
               {props.info.date.substring(props.info.date.indexOf(',')+1)}
             </li>
-            <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
+            <li className='text-black mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
               <img src={temp_img(Number.parseInt(props.info.temperature.toString()))} alt="temp" className='h-[3.5vh] mr-2' />
               {props.info.temperature.toString()}{temp_metric}
             </li>
-            <li className='text-white mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
+            <li className='text-black mt-[1.5vh] text-lg whitespace-nowrap flex items-center'>
               <img src={weather_pred_icons[props.info.weather.main.toString()]} alt="sunny" className='h-[3.5vh] mr-2' />
               {props.info.weather.description}
             </li>
