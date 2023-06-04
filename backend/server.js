@@ -72,6 +72,11 @@ app.get("/api/:zipcode", async (req, res) => {
   }
 });
 
+// Error handling middleware for 404 Not Found
+app.use((req, res) => {
+  res.status(404).json({ error: "API ENDPOINT NOT FOUND" });
+});
+
 app.listen(5000, () => {
   console.log("listening on port 5000");
 });
