@@ -8,6 +8,8 @@
         "start": "concurrently \"npm run start-backend\" \"npm run start-frontend\""
     },
     "dependencies": {
+        "child_process": "^1.0.2",
         "concurrently": "^7.6.0"
-    }
+    },
+    "type": "module"
 }
