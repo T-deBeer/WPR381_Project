@@ -8,7 +8,6 @@ export default function ErrorPage() {
         <div className='bg-creamlight flex flex-col items-center justify-center h-screen'>
           <h1 className=' text-[6rem]'>404</h1>
           <h2 className='text-[3rem]'>It seems you are trying to predict the weather of a place that is not on planet earth</h2>
-          <h2 className='text-[2rem]'>Please use the navigation menu on the top left to navigate back to the home page</h2>
           <Button icon="Go back to Home" onClick={() => {navi('/')}} hint='Go back to home' className='mt-2'/> 
         </div>
     );

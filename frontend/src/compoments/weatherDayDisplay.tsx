@@ -99,7 +99,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
   }, [props.id]);
 
   return (
-    <section id={uniqueId} className={`bg-cream rounded-2xl inline-block ml-10 mt-10 transition-all shadow-xl shadow-slate-600
+    <section id={uniqueId} className={`bg-cream rounded-2xl inline-block ml-10 mt-10 transition-all shadow-xl shadow-slate-600 transation-all duration-200 ease-out
       ${isFocused ? 'absolute top-0 left-0 w-[90vw] h-[50vh] mb-[5vh]' : 'relative top-[58vh] w-[11vw] h-[29vh]'}`}
       // The onClick event adds 'expanded' to the selected element and removes it from the other elements.
       // Also changes the refresh property to refresh the page.
@@ -111,14 +111,14 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
       {isFocused ?
         <div>
           {/* Video Area */}
-          <div className='w-[27vw] h-[50vh] border overflow-hidden rounded-tl-2xl rounded-bl-2xl inline-block'>
+          <div className='w-[27vw] h-[50vh] border overflow-hidden rounded-tl-2xl rounded-bl-2xl inline-block transation-all'>
             <video src={weather_pred_videos[props.info.weather.main.toString()]} muted loop autoPlay className="h-[100%] w-[100%] object-cover">This video is not available at the moment</video>
             <p className='absolute top-[21vh] left-[13vw] text-white text-4xl -translate-x-1/2 -translate-y-1/2'>{props.info.date.substring(0,props.info.date.indexOf(','))}</p>
             <p className='absolute top-[27vh] left-[13vw] text-white text-4xl -translate-x-1/2 -translate-y-1/2'>{props.info.date.substring(props.info.date.indexOf(',') + 2, props.info.date.length)}</p>
           </div>
 
           {/* Weather prediction area */}
-          <div className='w-[27vw] h-[50vh] ml-[3vw] inline-block align-top'>
+          <div className={`w-[27vw] h-[50vh] ml-[3vw] inline-block align-top   ${isFocused ? '' : 'hidden opacity-0'}`}>
             <div className='w-[27vw] h-[10vh] mb-[2vh] mt-[2vh] bg-creamlight rounded-xl shadow-md shadow-slate-600'>
               <ul className='list-none absolute left-[36%] flex'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
@@ -134,7 +134,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
             </div>
 
             {/* sun/moon-rise/set area */}
-            <div className='w-[27vw] h-[16vh] mb-[2vh] bg-creamlight rounded-xl shadow-md shadow-slate-600'>
+            <div className={`w-[27vw] h-[16vh] mb-[2vh] bg-creamlight rounded-xl shadow-md shadow-slate-600`}>
               <ul className='list-none absolute left-[36%] flex'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
                   <img src={sunrise} alt="sunny" title='sunrise' className='h-[3.5vh] mr-[0.5vw]' />
@@ -158,7 +158,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
             </div>
 
             {/* temperature area */}
-            <div className='w-[27vw] h-[16vh] border bg-creamlight rounded-xl shadow-md shadow-slate-600'>
+            <div className={`w-[27vw] h-[16vh] border bg-creamlight rounded-xl shadow-md shadow-slate-600`}>
               <ul className='list-none absolute left-[36%] flex'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
                   <p>min:</p>
@@ -182,14 +182,7 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
           </div>
 
           {/* Wind Area */}
-          <div className='w-[27vw] h-[50vh] ml-[3vw] inline-block'>
-            {/* <div className='w-[27vw] h-[10vh] mb-[2vh] mt-[2vh]'>
-              <ul className='list-none absolute left-[68.5%] flex'>
-                <li className='text-black mt-[3.3vh] text-lg whitespace-nowrap flex items-center'>
-                  <p className='text-2xl'>Hover over the icons/text for more details</p>
-                </li>
-              </ul>
-            </div> */}
+          <div className={`w-[27vw] h-[50vh] ml-[3vw] inline-block ${isFocused ? '' : 'hidden opacity-0'}`}>
             <div className='w-[27vw] h-[16vh] mb-[2vh] mt-[14vh] bg-creamlight rounded-xl shadow-md shadow-slate-600'>
               <ul className='list-none absolute flex ml-[3vw]'>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
