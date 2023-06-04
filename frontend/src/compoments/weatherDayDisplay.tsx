@@ -217,8 +217,8 @@ export default function WeatherDayDisplay(props: WeatherDisplayProps & { id: num
                   <p className='w-[11vw]' title='humidity (relative humidity)'>{props.info.humidity.toString()}%</p>
                 </li>
                 <li className='text-black mt-[2.8vh] text-lg whitespace-nowrap flex items-center'>
-                  <img src={feel} alt="temp" title='what the humidity feels like (relative humidity)' className='h-[3.5vh] mr-2' />
-                  <p title='what the humidity feels like (relative humidity)'>{props.info.feels_like.toString()}%</p>
+                  <img src={feel} alt="temp" title='what the temperature feels like (relative temperature)' className='h-[3.5vh] mr-2' />
+                  <p title='what the temperature feels like (relative temperature)'>{props.info.feels_like.toString()} {temp_metric}</p>
                 </li>
               </ul>
               <ul className='list-none absolute flex ml-[3vw] top-[38vh]'>
