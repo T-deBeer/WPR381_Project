@@ -29,7 +29,6 @@ app.get("/api/:zipcode", async (req, res) => {
     const weatherResponse = await fetch(weatherEndpoint);
     const weatherData = await weatherResponse.json();
 
-    console.log(display_name);
     const parts = display_name.split(",");
     const place = parts[1].trim();
 
