@@ -32,8 +32,8 @@ export default  function Sidebar() {
             </div>
             <div
                 onClick={() => {
-                    if (showSidebar) {
-                        toggleMenu
+                    if (showSidebar == true) {
+                        toggleMenu();
                     }
                 }}
                 className={`bg-gray-50 absolute top-0 left-0 w-full h-full transition-opacity ease-in-out duration-300 ${showSidebar ? 'opacity-50 z-30' : 'opacity-0 z-0'}`} />

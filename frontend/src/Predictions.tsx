@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Navbar, VideoBackground, WeatherDayDisplay } from './compoments';
+import { Navbar, VideoBackground, WeatherDayDisplay, Button } from './compoments';
 import  { forecastData, weeksForecast } from './data/interfaces';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExchange } from '@fortawesome/free-solid-svg-icons';
 
 
 export default function Predictions() {
@@ -46,13 +48,13 @@ export default function Predictions() {
       <div className='bg-creamlighter h-[100vh] fixed'>
         <Navbar/>
         {weatherInfo.length > 0 && (
-          <h3 className='text-center text-3xl font-bold absolute top-[1vh] left-[35vw]'>Weather in {weatherInfo[0].location}</h3>
+          <h3 className='text-center text-3xl font-bold absolute top-[1vh] left-[35vw] text-white'>Weather in {weatherInfo[0].location}</h3>
         )}
         
         <div className='relative w-[94vw] ml-[3vw] h-[95vh] bg-creamlight shadow-2xl' id='container'>
+          <Button className='absolute top-[5.5vh] left-[87vw] z-10 hover:bg-creamDark' onClick={switchUnit} icon={<FontAwesomeIcon icon={faExchange} size="lg" />}></Button>
           {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} key={i} id={i} refresh={refresh} units={units} onClick={setFocus}/>))}
-        </div>
-        <button type="button" className='bg-cream p-2 rounded-md hover:bg-creamDark text-black absolute top-[1vh] left-[5vw]' onClick={switchUnit}>Switch Unit</button>
+        </div>        
       </div>
     </div>
   );

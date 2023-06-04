@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch,faLocation } from '@fortawesome/free-solid-svg-icons';
+
 import {useNavigate} from 'react-router-dom';
 import { background } from '../assets';
 import Textbox from './Textbox';
@@ -93,8 +96,8 @@ export default function VideoBackground() {
           <Textbox text="Enter a South African ZIP Code" onChange={handleInputChange}/>
         </div>
         <div className={`${center()} top-[80%] flex flex-row gap-2 flex-wrap`}>
-          <Button caption="Search" onClick={getWeather} />
-          <Button caption="Use Current Location" onClick={getMyLocation} />
+          <Button icon={<FontAwesomeIcon icon={faSearch} size="lg" />} onClick={getWeather} hint='Search with zip code'/>
+          <Button icon={<FontAwesomeIcon icon={faLocation} size="lg" />} onClick={getMyLocation} hint='Use my location'/>
         </div>
       </div>
     </>
