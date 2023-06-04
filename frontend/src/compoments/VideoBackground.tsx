@@ -83,7 +83,7 @@ export default function VideoBackground() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer newestOnTop theme='dark' position='top-center' />
       <div className="mt-[2vw] w-[70vw] h-[80vh] m-auto relative">
         <video src={background} muted loop autoPlay className="h-[80vh] rounded-[2.5em]">
           This video is not available at the moment
@@ -93,7 +93,7 @@ export default function VideoBackground() {
           Award-winning weather forecasting app of 580 B.C.
         </p>
         <div className={`${center()} top-[70%]`}>
-          <Textbox text="Enter ZIP code" onChange={handleInputChange}/>
+          <Textbox text="Enter a South African ZIP Code" onChange={handleInputChange}/>
         </div>
         <div className={`${center()} top-[80%] flex flex-row gap-2 flex-wrap`}>
           <Button icon={<FontAwesomeIcon icon={faSearch} size="lg" />} onClick={getWeather} hint='Search with zip code'/>

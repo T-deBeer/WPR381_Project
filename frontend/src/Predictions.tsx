@@ -19,8 +19,6 @@ export default function Predictions() {
       });
   }, [zipcode, useMetricUnits, units]);
   
-  console.log(weatherInfo[0]);
-
   function switchUnit() {
     setUseMetricUnits(!useMetricUnits);
     setUnits(useMetricUnits ? "metric" : "imperial");
@@ -43,11 +41,14 @@ export default function Predictions() {
   }
 
   let i = 0;
-
   return (
     <div>
       <div className='bg-creamlighter h-[100vh] fixed'>
         <Navbar/>
+        {weatherInfo.length > 0 && (
+          <h3 className='text-center text-3xl font-bold absolute top-[1vh] left-[35vw]'>Weather in {weatherInfo[0].location}</h3>
+        )}
+        
         <div className='relative w-[94vw] ml-[3vw] h-[95vh] bg-creamlight shadow-2xl' id='container'>
           {weatherInfo.map((weather:forecastData) =>(i++,<WeatherDayDisplay info={weather} key={i} id={i} refresh={refresh} units={units} onClick={setFocus}/>))}
         </div>

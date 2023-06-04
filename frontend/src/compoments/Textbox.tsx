@@ -10,7 +10,7 @@ export default function Textbox(TextboxProps: TextboxProps) {
       <input type="text" id="myInput"
         onFocus={() => {setFocused(true);}}
         onBlur={() => { if (input === '') {setFocused(false);}}}
-        className={`text-white bg-gray-100 ${focused ? 'bg-opacity-70' : 'bg-opacity-30'} border-b border-gray-300 focus:border-gray-400 outline-none p-[5%] rounded-md hover:bg-opacity-70 transition-colors duration-300 ease-out`}
+        className={`text-white bg-gray-100 ${focused ? 'bg-opacity-70' : 'bg-opacity-30'} border-b border-gray-300 focus:border-gray-400 outline-none p-[5%] rounded-md hover:bg-opacity-70 transition-colors duration-300 ease-out w-64`}
         value={input}
         onChange={(e) => {        
           setInput(e.target.value);

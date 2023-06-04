@@ -22,7 +22,7 @@ export default  function Sidebar() {
                                 className='rounded-md cursor-pointer ml-10 text-white hover:bg-cream m-[2vh] p-[2vh] transition-colors ease-in-out duration-500'
                                 key={nav.id}
                             >
-                                <a href={`#${nav.id}`}>
+                                <a href={`${nav.route}`}>
                                     {nav.title}
                                 </a>
                             </li>
