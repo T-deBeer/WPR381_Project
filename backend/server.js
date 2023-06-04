@@ -29,7 +29,6 @@ app.get("/api/:zipcode", async (req, res) => {
     const weatherResponse = await fetch(weatherEndpoint);
     const weatherData = await weatherResponse.json();
 
-    console.log(display_name);
     const parts = display_name.split(",");
     const place = parts[1].trim();
 
@@ -52,7 +51,7 @@ app.get("/api/:zipcode", async (req, res) => {
         temperature: Math.round(day.temp.day),
         min_temp: Math.round(day.temp.min),
         max_temp: Math.round(day.temp.max),
-        feels_like: day.feels_like.day,
+        feels_like: Math.round(day.feels_like.day),
         pressure: day.pressure,
         humidity: day.humidity,
         dew_point: day.dew_point,
