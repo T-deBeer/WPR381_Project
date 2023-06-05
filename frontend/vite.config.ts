@@ -7,8 +7,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
-        changeOrigin: true
+        target: 'https://weatherapiwpr381.tiaande.repl.co',
+        changeOrigin: true,
       }
     }
   }
